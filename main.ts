@@ -1,11 +1,21 @@
-basic.forever(function () {
-    if(c<=10){
-        min=c
-    }
-   if(c>=28){
-       max=c
-    }
+input.onButtonPressed(Button.A, function () {
+    basic.showNumber(min2)
 })
-let c=input.temperature()
-let min = null
-let max = null
+input.onButtonPressed(Button.B, function () {
+    basic.showNumber(max2)
+})
+let max2 = 0
+let min2 = 0
+let c = input.temperature()
+min2 = input.temperature()
+max2 = input.temperature()
+basic.forever(function () {
+    c = input.temperature()
+    if (c < min2) {
+        min2 = c
+    }
+    if (c > max2) {
+        max2 = c
+    }
+    basic.showNumber(c)
+})
